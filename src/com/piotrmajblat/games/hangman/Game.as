@@ -4,6 +4,7 @@ package com.piotrmajblat.games.hangman
 	import com.piotrmajblat.games.hangman.gamestates.GameplayState;
 	import com.piotrmajblat.games.hangman.gamestates.LooseState;
 	import com.piotrmajblat.games.hangman.gamestates.SplashScreenState;
+	import com.piotrmajblat.games.hangman.gamestates.WinState;
 	import com.piotrmajblat.games.hangman.loaders.WordsLoader;
 	import com.piotrmajblat.games.hangman.loaders.events.WordsLoaderEvent;
 	import com.piotrmajblat.games.hangman.sound.SimpleSoundManager;
@@ -46,6 +47,7 @@ package com.piotrmajblat.games.hangman
 			_gameStateManager.registerState(new SplashScreenState(this));
 			_gameStateManager.registerState(new GameplayState(this, event.words));
 			_gameStateManager.registerState(new LooseState(this));
+			_gameStateManager.registerState(new WinState(this));
 
 			_gameStateManager.setStateByName(SplashScreenState.NAME);
 		}

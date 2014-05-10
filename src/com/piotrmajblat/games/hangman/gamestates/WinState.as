@@ -5,22 +5,21 @@ package com.piotrmajblat.games.hangman.gamestates
 
 	import flash.events.MouseEvent;
 
-	public class LooseState extends GameState
+	public class WinState extends GameState
 	{
-		public static const NAME:String = "looseState";
+		public static const NAME:String = "winState";
 
-		public function LooseState(game:Game)
+		public function WinState(game:Game)
 		{
 			super(game);
 		}
 
 		override public function onEnter():void
 		{
-			gameView.gibbet.visible = true;
-			gameView.hangman.visible = true;
+			gameView.congratulationsTextMc.visible = true;
+			SimpleSoundManager.playSound("win");
 			gameView.stage.addEventListener(MouseEvent.CLICK, onStageClicked);
 			gameView.buttonMode = true;
-			SimpleSoundManager.playSound("lose");
 		}
 
 		private function onStageClicked(event:MouseEvent):void
@@ -30,8 +29,7 @@ package com.piotrmajblat.games.hangman.gamestates
 
 		override public function onExit():void
 		{
-			gameView.gibbet.visible = false;
-			gameView.hangman.visible = false;
+			gameView.congratulationsTextMc.visible = false;
 			gameView.stage.removeEventListener(MouseEvent.CLICK, onStageClicked);
 			gameView.buttonMode = false;
 		}

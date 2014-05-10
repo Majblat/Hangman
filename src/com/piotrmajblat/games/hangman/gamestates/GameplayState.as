@@ -81,11 +81,27 @@ package com.piotrmajblat.games.hangman.gamestates
 			if (_currentWordToGuess.indexOf(chosenLetter) != -1)
 			{
 				showMatchingLetters(chosenLetter);
+				if (isGameWon())
+				{
+					requestStateChange(WinState.NAME);
+				}
 			}
 			else
 			{
 				handleMistake();
 			}
+		}
+
+		private function isGameWon():Boolean
+		{
+			for (var i:int = 1; i <= _currentWordToGuess.length; i++)
+			{
+				if (!gameView.guessedLetters["letter_" + i].visible)
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		private function handleMistake():void
