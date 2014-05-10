@@ -20,18 +20,6 @@ package
 		{
 			loadWords();
 			_view = new GameMc();
-			addChild(_view);
-
-			setupStates();
-		}
-
-		private function setupStates():void
-		{
-			_gameStateManager = new GameStateManager();
-			_gameStateManager.registerState(new SplashScreenState(this));
-			_gameStateManager.registerState(new GameplayState(this));
-
-			_gameStateManager.setStateByName(SplashScreenState.NAME);
 		}
 
 		private function loadWords():void
@@ -43,7 +31,13 @@ package
 
 		private function onWordsLoaded(event:WordsLoaderEvent):void
 		{
-			trace(event.words);
+			addChild(_view);
+
+			_gameStateManager = new GameStateManager();
+			_gameStateManager.registerState(new SplashScreenState(this));
+			_gameStateManager.registerState(new GameplayState(this, event.words));
+
+			_gameStateManager.setStateByName(SplashScreenState.NAME);
 		}
 
 		public function get view():GameMc
