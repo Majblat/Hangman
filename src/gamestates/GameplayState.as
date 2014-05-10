@@ -69,6 +69,7 @@ package gamestates
 
 		private function onLetterClicked(event:MouseEvent):void
 		{
+			event.stopImmediatePropagation();
 			var chosenLetter:String = event.currentTarget.name;
 			event.currentTarget.visible = false;
 
@@ -86,6 +87,11 @@ package gamestates
 		{
 			_mistakesCount++;
 			gameView.gibbet["gibbet_" + _mistakesCount].visible = true;
+
+			if (_mistakesCount == MISTAKES_TO_LOOSE)
+			{
+				requestStateChange(LooseState.NAME);
+			}
 		}
 
 		private function showMatchingLetters(letter:String):void
@@ -96,7 +102,7 @@ package gamestates
 				if (currentLetter == letter)
 				{
 					var textField:TextField = gameView.guessedLetters["letter_" + (i +1)];
-					textField.text = letter;
+					textField.text = letter.toUpperCase();
 					textField.visible = true;
 				}
 			}

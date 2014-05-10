@@ -4,6 +4,7 @@ package
 
 	import gamestates.GameStateManager;
 	import gamestates.GameplayState;
+	import gamestates.LooseState;
 	import gamestates.SplashScreenState;
 
 	import loaders.WordsLoader;
@@ -36,6 +37,7 @@ package
 			_gameStateManager = new GameStateManager();
 			_gameStateManager.registerState(new SplashScreenState(this));
 			_gameStateManager.registerState(new GameplayState(this, event.words));
+			_gameStateManager.registerState(new LooseState(this));
 
 			_gameStateManager.setStateByName(SplashScreenState.NAME);
 		}
