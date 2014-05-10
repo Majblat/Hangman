@@ -15,6 +15,7 @@ package com.piotrmajblat.games.hangman.gamestates
 
 		override public function onEnter():void
 		{
+			gameView.hangManTextField.visible = true;
 			gameView.rules.visible = true;
 			gameView.playButton.visible = true;
 			gameView.playButton.addEventListener(MouseEvent.CLICK, onMouseClick);
@@ -31,6 +32,7 @@ package com.piotrmajblat.games.hangman.gamestates
 			gameView.rules.visible = false;
 			gameView.playButton.visible = false;
 			gameView.playButton.removeEventListener(MouseEvent.CLICK, onMouseClick);
+			gameView.hangManTextField.visible = false;
 		}
 
 	}

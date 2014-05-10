@@ -6,6 +6,7 @@ package com.piotrmajblat.games.hangman.gamestates
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
 
 	public class GameplayState extends GameState
 	{
@@ -21,6 +22,10 @@ package com.piotrmajblat.games.hangman.gamestates
 
 		private var _mistakesCount:int;
 
+		private var _winsCount:int = 0;
+
+		private var _loseCount:int = 0;
+
 		public function GameplayState(game:Game, words:Vector.<String>)
 		{
 			super(game);
@@ -28,6 +33,8 @@ package com.piotrmajblat.games.hangman.gamestates
 			_alphabet = Vector.<String>(
 					["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 			);
+			gameView.winAndLooseCountTextField.autoSize = TextFieldAutoSize.CENTER;
+			updateWinsAndLoseCountTextField();
 		}
 
 		override public function onEnter():void
@@ -83,6 +90,8 @@ package com.piotrmajblat.games.hangman.gamestates
 				showMatchingLetters(chosenLetter);
 				if (isGameWon())
 				{
+					_winsCount++;
+					updateWinsAndLoseCountTextField();
 					requestStateChange(WinState.NAME);
 				}
 			}
@@ -90,6 +99,11 @@ package com.piotrmajblat.games.hangman.gamestates
 			{
 				handleMistake();
 			}
+		}
+
+		private function updateWinsAndLoseCountTextField():void
+		{
+			gameView.winAndLooseCountTextField.text = "Won: " + _winsCount + " Lost: " + _loseCount;
 		}
 
 		private function isGameWon():Boolean
@@ -111,6 +125,8 @@ package com.piotrmajblat.games.hangman.gamestates
 
 			if (_mistakesCount == MISTAKES_TO_LOOSE)
 			{
+				_loseCount++;
+				updateWinsAndLoseCountTextField();
 				requestStateChange(LooseState.NAME);
 			}
 		}
