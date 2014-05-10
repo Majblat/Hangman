@@ -1,0 +1,38 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Hangman" type="FlashRunConfigurationType" factoryName="Flash App" singleton="true">
+    <option name="BCName" value="Hangman" />
+    <option name="IOSSimulatorSdkPath" value="" />
+    <option name="adlOptions" value="" />
+    <option name="airProgramParameters" value="" />
+    <option name="appDescriptorForEmulator" value="Android" />
+    <option name="debugTransport" value="USB" />
+    <option name="debuggerSdkRaw" value="BC SDK" />
+    <option name="emulator" value="NexusOne" />
+    <option name="emulatorAdlOptions" value="" />
+    <option name="fastPackaging" value="true" />
+    <option name="fullScreenHeight" value="0" />
+    <option name="fullScreenWidth" value="0" />
+    <option name="launchUrl" value="false" />
+    <option name="launcherParameters">
+      <LauncherParameters>
+        <option name="browserFamily" value="FIREFOX" />
+        <option name="launcherType" value="OSDefault" />
+        <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+      </LauncherParameters>
+    </option>
+    <option name="mobileRunTarget" value="Emulator" />
+    <option name="moduleName" value="Hangman" />
+    <option name="overriddenMainClass" value="" />
+    <option name="overriddenOutputFileName" value="" />
+    <option name="overrideMainClass" value="false" />
+    <option name="runTrusted" value="true" />
+    <option name="screenDpi" value="0" />
+    <option name="screenHeight" value="0" />
+    <option name="screenWidth" value="0" />
+    <option name="url" value="http://" />
+    <option name="usbDebugPort" value="7936" />
+    <RunnerSettings RunnerId="FlexDebugRunner" />
+    <ConfigurationWrapper RunnerId="FlexDebugRunner" />
+    <method />
+  </configuration>
+</component>
