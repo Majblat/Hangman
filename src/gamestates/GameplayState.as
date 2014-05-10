@@ -8,6 +8,8 @@ package gamestates
 	{
 		public static const NAME:String = "gamePlayState";
 
+		private static const MISTAKES_TO_LOOSE:int = 7;
+
 		private var _words:Vector.<String>;
 
 		private var _currentWordToGuess:String;
@@ -21,7 +23,7 @@ package gamestates
 			super(game);
 			_words = words;
 			_alphabet = Vector.<String>(
-				["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "y", "z"]
+				["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 			);
 		}
 
@@ -30,15 +32,26 @@ package gamestates
 			gameView.guessedLetters.visible = true;
 			gameView.letterCells.visible = true;
 			gameView.virtualLetters.visible = true;
+			gameView.gibbet.visible = true;
+			gameView.hangman.visible = true;
 
 			_mistakesCount = 0;
 
 			_currentWordToGuess = getRandomWord();
 			hideAllLetters();
+			hideGibbetElements();
 			showLetterCells();
 			showVirtualLetters();
 
 			trace(_currentWordToGuess);
+		}
+
+		private function hideGibbetElements():void
+		{
+			for (var i:int = 1; i <= MISTAKES_TO_LOOSE; i++)
+			{
+				gameView.gibbet["gibbet_" + i].visible = false;
+			}
 		}
 
 		private function showVirtualLetters():void
@@ -72,6 +85,7 @@ package gamestates
 		private function handleMistake():void
 		{
 			_mistakesCount++;
+			gameView.gibbet["gibbet_" + _mistakesCount].visible = true;
 		}
 
 		private function showMatchingLetters(letter:String):void
@@ -115,6 +129,8 @@ package gamestates
 			gameView.guessedLetters.visible = false;
 			gameView.letterCells.visible = false;
 			gameView.virtualLetters.visible = false;
+			gameView.gibbet.visible = false;
+			gameView.hangman.visible = false;
 		}
 	}
 }
