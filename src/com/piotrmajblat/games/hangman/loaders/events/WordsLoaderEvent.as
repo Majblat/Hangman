@@ -1,4 +1,4 @@
-package loaders.events
+package com.piotrmajblat.games.hangman.loaders.events
 {
 	import flash.events.Event;
 

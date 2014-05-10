@@ -1,12 +1,12 @@
-package gamestates
+package com.piotrmajblat.games.hangman.gamestates
 {
 	import avmplus.getQualifiedClassName;
 
+	import com.piotrmajblat.games.hangman.Game;
+	import com.piotrmajblat.games.hangman.gamestates.events.GameStateEvent;
+
 	import flash.events.EventDispatcher;
-
 	import flash.utils.getDefinitionByName;
-
-	import gamestates.events.GameStateEvent;
 
 	public class GameState extends EventDispatcher
 	{
@@ -33,7 +33,7 @@ package gamestates
 
 		public function requestStateChange(newStateName:String):void
 		{
-			dispatchEvent(new GameStateEvent(GameStateEvent.REQUEST_STATE_CHANGE , newStateName));
+			dispatchEvent(new GameStateEvent(GameStateEvent.REQUEST_STATE_CHANGE, newStateName));
 		}
 
 		public function get gameView():GameMc

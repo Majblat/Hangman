@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="Hangman">
     <configurations>
-      <configuration name="Hangman" pure-as="true" main-class="Game" output-file="Game.swf" output-folder="$MODULE_DIR$/out/production/Hangman">
+      <configuration name="Hangman" pure-as="true" main-class="com.piotrmajblat.games.hangman.Game" output-file="Game.swf" output-folder="$MODULE_DIR$/out/production/Hangman">
         <dependencies target-player="13.0">
           <entries>
             <entry library-id="b61afb3b-392a-44e6-81fc-e36602fe25f5">

@@ -1,4 +1,4 @@
-package gamestates.events
+package com.piotrmajblat.games.hangman.gamestates.events
 {
 	import flash.events.Event;
 

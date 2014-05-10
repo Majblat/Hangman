@@ -1,6 +1,6 @@
-package gamestates
+package com.piotrmajblat.games.hangman.gamestates
 {
-	import gamestates.events.GameStateEvent;
+	import com.piotrmajblat.games.hangman.gamestates.events.GameStateEvent;
 
 	public class GameStateManager
 	{

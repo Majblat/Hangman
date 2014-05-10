@@ -1,5 +1,8 @@
-package gamestates
+package com.piotrmajblat.games.hangman.gamestates
 {
+	import com.piotrmajblat.games.hangman.Game;
+	import com.piotrmajblat.games.hangman.sound.SimpleSoundManager;
+
 	import flash.events.MouseEvent;
 
 	public class LooseState extends GameState
@@ -16,6 +19,7 @@ package gamestates
 			gameView.gibbet.visible = true;
 			gameView.hangman.visible = true;
 			gameView.stage.addEventListener(MouseEvent.CLICK, onStageClicked);
+			SimpleSoundManager.playSound("lose");
 		}
 
 		private function onStageClicked(event:MouseEvent):void

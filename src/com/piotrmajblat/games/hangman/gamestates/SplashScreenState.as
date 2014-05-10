@@ -1,5 +1,7 @@
-package gamestates
+package com.piotrmajblat.games.hangman.gamestates
 {
+	import com.piotrmajblat.games.hangman.Game;
+
 	import flash.events.MouseEvent;
 
 	public class SplashScreenState extends GameState

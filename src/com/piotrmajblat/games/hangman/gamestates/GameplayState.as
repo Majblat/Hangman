@@ -1,5 +1,8 @@
-package gamestates
+package com.piotrmajblat.games.hangman.gamestates
 {
+	import com.piotrmajblat.games.hangman.Game;
+	import com.piotrmajblat.games.hangman.sound.SimpleSoundManager;
+
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
@@ -23,7 +26,7 @@ package gamestates
 			super(game);
 			_words = words;
 			_alphabet = Vector.<String>(
-				["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+					["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 			);
 		}
 
@@ -73,6 +76,8 @@ package gamestates
 			var chosenLetter:String = event.currentTarget.name;
 			event.currentTarget.visible = false;
 
+			SimpleSoundManager.playSound("click");
+
 			if (_currentWordToGuess.indexOf(chosenLetter) != -1)
 			{
 				showMatchingLetters(chosenLetter);
@@ -101,7 +106,7 @@ package gamestates
 				var currentLetter:String = _currentWordToGuess.charAt(i);
 				if (currentLetter == letter)
 				{
-					var textField:TextField = gameView.guessedLetters["letter_" + (i +1)];
+					var textField:TextField = gameView.guessedLetters["letter_" + (i + 1)];
 					textField.text = letter.toUpperCase();
 					textField.visible = true;
 				}

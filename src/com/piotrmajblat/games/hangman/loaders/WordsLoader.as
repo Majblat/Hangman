@@ -1,11 +1,11 @@
-package loaders
+package com.piotrmajblat.games.hangman.loaders
 {
+	import com.piotrmajblat.games.hangman.loaders.events.WordsLoaderEvent;
+
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
-
-	import loaders.events.WordsLoaderEvent;
 
 	public class WordsLoader extends EventDispatcher
 	{

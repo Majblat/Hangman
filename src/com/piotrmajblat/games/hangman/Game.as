@@ -1,14 +1,14 @@
-package
+package com.piotrmajblat.games.hangman
 {
+	import com.piotrmajblat.games.hangman.gamestates.GameStateManager;
+	import com.piotrmajblat.games.hangman.gamestates.GameplayState;
+	import com.piotrmajblat.games.hangman.gamestates.LooseState;
+	import com.piotrmajblat.games.hangman.gamestates.SplashScreenState;
+	import com.piotrmajblat.games.hangman.loaders.WordsLoader;
+	import com.piotrmajblat.games.hangman.loaders.events.WordsLoaderEvent;
+	import com.piotrmajblat.games.hangman.sound.SimpleSoundManager;
+
 	import flash.display.Sprite;
-
-	import gamestates.GameStateManager;
-	import gamestates.GameplayState;
-	import gamestates.LooseState;
-	import gamestates.SplashScreenState;
-
-	import loaders.WordsLoader;
-	import loaders.events.WordsLoaderEvent;
 
 	[SWF(width="310", height="450", backgroundColor="#000000", frameRate="30")]
 	public class Game extends Sprite
@@ -20,7 +20,15 @@ package
 		public function Game()
 		{
 			loadWords();
+			loadSounds();
 			_view = new GameMc();
+		}
+
+		private function loadSounds():void
+		{
+			SimpleSoundManager.addSoundFromFile("click", "sounds/click.mp3");
+			SimpleSoundManager.addSoundFromFile("lose", "sounds/lose.mp3");
+			SimpleSoundManager.addSoundFromFile("win", "sounds/win.mp3");
 		}
 
 		private function loadWords():void
