@@ -16,6 +16,7 @@ package com.piotrmajblat.games.hangman.gamestates
 		public function registerState(gameState:GameState):void
 		{
 			_states[gameState.name] = gameState;
+			gameState.onExit();
 		}
 
 		public function setStateByName(stateName:String):void
