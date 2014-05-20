@@ -21,14 +21,12 @@ package com.piotrmajblat.games.hangman.gamestates
 
 		public function onEnter():void
 		{
-			gameView.letterCells.visible = true;
-			gameView.guessedLetters.visible = true;
+
 		}
 
 		public function onExit():void
 		{
-			gameView.letterCells.visible = false;
-			gameView.guessedLetters.visible = false;
+
 		}
 
 		public function requestStateChange(newStateName:String):void
